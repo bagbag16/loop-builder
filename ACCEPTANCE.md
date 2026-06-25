@@ -1,6 +1,6 @@
 # loop-builder · 验收规格(ACCEPTANCE)
 
-> 这是 loop-builder **自己的**验收目标,由 baoyicheng 与 AI 用 loop-builder 的"验收目标共建"流程共建并确认(2026-06-22)。
+> 这是 loop-builder **自己的**验收目标,由 bagbag16 与 AI 用 loop-builder 的"验收目标共建"流程共建并确认(2026-06-22)。
 > 用途:以后任何对 `SKILL.md` 的改动,都对照本规格判断"是否更好",而不是靠某一方主观感觉。
 > 修订:本规格本身可被迭代,但只有"有理(新约束 / 新信息)且不违背设计理念"时才改,走 SKILL.md 的"目标变更纪律",并在此留痕。
 
