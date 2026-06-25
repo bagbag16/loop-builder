@@ -1,3 +1,6 @@
+<!-- Language switch -->
+**English** | [中文](./README.zh.md)
+
 # loop-builder
 
 **Governance for autonomous loops that should converge, stop, and be judged independently.**
