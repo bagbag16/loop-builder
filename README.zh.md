@@ -7,7 +7,7 @@
 
 自治 loop 的危险不在于它不会继续行动，而在于它一直行动，却没有独立机制判断自己是否更接近目标。`loop-builder` 先判断任务是否值得 loop 化，再定义能让 loop 保持诚实的最小治理结构。
 
-它不保存连续性状态。ACH 负责状态、恢复和交接；`loop-builder` 负责语义治理：客观验收、独立监管和停止条件。
+它不保存连续性状态。[ACH](https://github.com/bagbag16/agent-continuity-harness) 负责状态、恢复和交接；`loop-builder` 负责语义治理：客观验收、独立监管和停止条件。
 
 ```mermaid
 flowchart TD
@@ -39,7 +39,7 @@ flowchart TD
 | 验收负责人 | 定义目标、验收标准，以及成功后的新目标 |
 | Loop 执行者 | 执行尝试并记录证据 |
 | 监管者 | 有权叫停、重定向或质疑 loop |
-| ACH 状态根 | 保存连续性状态，避免恢复时漂移 |
+| [ACH 状态根](https://github.com/bagbag16/agent-continuity-harness) | 保存连续性状态，避免恢复时漂移 |
 
 监管者必须高于执行者。自己验收自己的 loop，最终会替自己找理由。
 
