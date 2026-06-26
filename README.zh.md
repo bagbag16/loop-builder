@@ -15,14 +15,14 @@
 
 ```mermaid
 flowchart TD
-  T["Proposed long task"] --> G["Necessity gate"]
-  G -->|"不重复 / 不客观 / 低漂移风险"| N["Do not loop"]
-  G -->|"重复 + 可客观验收 + 有漂移风险"| A["Acceptance owner"]
-  A -->|"目标 + 判据"| L["Loop agent"]
-  L -->|"尝试 + 证据"| S["ACH state root"]
-  S -->|"轨迹"| R["Supervisor agent"]
+  T["拟议长任务"] --> G["必要性闸门"]
+  G -->|"不重复 / 不客观 / 低漂移风险"| N["不要做成 loop"]
+  G -->|"重复 + 可客观验收 + 有漂移风险"| A["验收负责人"]
+  A -->|"目标 + 判据"| L["Loop 执行 Agent"]
+  L -->|"尝试 + 证据"| S["ACH 状态根"]
+  S -->|"轨迹"| R["监管 Agent"]
   R -->|"正在收敛"| L
-  R -->|"停滞 / 偏离 / 越界"| H["Stop and hand current state back"]
+  R -->|"停滞 / 偏离 / 越界"| H["停止并交回当前状态"]
   H --> A
 ```
 
