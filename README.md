@@ -7,7 +7,7 @@
 
 An autonomous loop is dangerous when it keeps acting without an independent way to judge whether it is getting closer to the target. `loop-builder` decides whether a task deserves a loop at all, then defines the smallest governance structure that can keep the loop honest.
 
-It does not store continuity state. ACH handles state, recovery, and handoff. `loop-builder` handles the semantic governance: objective acceptance, independent supervision, and stop conditions.
+It does not store continuity state. [ACH](https://github.com/bagbag16/agent-continuity-harness) handles state, recovery, and handoff. `loop-builder` handles the semantic governance: objective acceptance, independent supervision, and stop conditions.
 
 ```mermaid
 flowchart TD
@@ -39,7 +39,7 @@ If any condition fails, use a normal plan instead of a loop.
 | Acceptance owner | Defines the target, criteria, and next target after success |
 | Loop executor | Attempts the work and records evidence |
 | Supervisor | Has authority to stop, redirect, or challenge the loop |
-| ACH state root | Stores continuity state so the loop can resume without drift |
+| [ACH state root](https://github.com/bagbag16/agent-continuity-harness) | Stores continuity state so the loop can resume without drift |
 
 The supervisor must outrank the executor. A loop that judges itself will eventually excuse itself.
 
