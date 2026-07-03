@@ -62,6 +62,18 @@ Use loop-builder. Decide whether this task should become an autonomous loop. If 
 
 A complete design session — necessity gate, the three roles instantiated, the acceptance table, ACH binding, thresholds, and a supervisor trip in action — is in the [worked example](./EXAMPLE.md) (Chinese, like [SKILL.md](./SKILL.md), which is the authoritative methodology).
 
+## Enforcement Levels
+
+A governance rule the executor can talk its way past is not governance. loop-builder splits its mechanisms by how they are actually enforced — the design stance is that **counting belongs to code, judgment belongs to agents**:
+
+| Mechanism | Level | Enforced by |
+| --- | --- | --- |
+| Rounds, budget, stall tripwire (K), distance window (W), legal exits | **gate** | host-code loop shell — see the [reference implementation](./reference/loop-shell.workflow.js); the executor cannot negotiate with an `if` statement |
+| Acceptance distance measurement | **derived** | computed by the shell from per-criterion status the executor must return; self-reported classification is only ever used to stop *earlier* |
+| Judge information asymmetry | **gate** | the orchestrator hands the judge only {artifact, spec} — it physically never receives the execution transcript |
+| Judge independence | **prose → gate** | SKILL.md now requires a different base model by default; enforceable wherever the orchestrator controls model selection |
+| Necessity gate, acceptance co-design, semantic stall diagnosis | **prose** | design-time method and semantic judgment — inherently prose, stated as such |
+
 ## When Not To Use It
 
 Do not use it for ordinary long tasks, one-off research, vague goals, or work that cannot be objectively judged. More process does not make an unclear goal clearer.
