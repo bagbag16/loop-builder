@@ -7,9 +7,14 @@
 //   - round counting, budget, stall tripwire (K), distance window (W),
 //     supervisor trip, and stop conditions are `if` statements — the executor
 //     cannot talk its way past them;
-//   - the executor self-reports a classification, but the shell ALSO verifies
-//     acceptance distance from the structured criteria status it must return —
-//     self-report is used for the cheap trip, never as the only measurement;
+//   - the executor self-reports a classification, and the shell separately
+//     recomputes acceptance distance from the per-criterion status it must
+//     return. Be precise about what that buys: criteria_status is STRUCTURED
+//     SELF-REPORT — harder to fudge than a one-word label, but still
+//     executor-written. The real hardening is (a) the adversarial judge
+//     re-checks at claims_done, and (b) any criterion that can be machine-
+//     checked (tests, schema, rerun) should be verified by the shell itself
+//     here instead of trusting the reported flag;
 //   - the judge sees only {artifact, acceptance spec}, never the execution
 //     transcript — information asymmetry enforced by construction;
 //   - the final acceptance check re-runs independently, and the loop can end
@@ -97,7 +102,9 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
   if (!attempt) { outcome = { exit: 'exhausted', reason: 'executor died' }; break }
 
   // ---- supervision is code, not opinion -------------------------------
-  const distance = unmetP0Count(attempt.criteria_status)   // independent measure
+  // distance from structured self-report: independent of the classification
+  // label, NOT of the executor; judge re-checks at claims_done
+  const distance = unmetP0Count(attempt.criteria_status)
   ledger.push({ round, classification: attempt.classification, distance, action: attempt.action_taken })
   log(`round ${round}: ${attempt.classification}, unmet P0 = ${distance}`)
 

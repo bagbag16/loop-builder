@@ -69,7 +69,7 @@ A governance rule the executor can talk its way past is not governance. loop-bui
 | Mechanism | Level | Enforced by |
 | --- | --- | --- |
 | Rounds, budget, stall tripwire (K), distance window (W), legal exits | **gate** | host-code loop shell — see the [reference implementation](./reference/loop-shell.workflow.js); the executor cannot negotiate with an `if` statement |
-| Acceptance distance measurement | **derived** | computed by the shell from per-criterion status the executor must return; self-reported classification is only ever used to stop *earlier* |
+| Acceptance distance measurement | **structured self-report → derived** | computed by the shell from per-criterion status — independent of the classification label but still executor-written, so not ground truth; hardened by the adversarial judge at `claims_done`, and criteria that are machine-checkable should be verified by the shell directly |
 | Judge information asymmetry | **gate** | the orchestrator hands the judge only {artifact, spec} — it physically never receives the execution transcript |
 | Judge independence | **prose → gate** | SKILL.md now requires a different base model by default; enforceable wherever the orchestrator controls model selection |
 | Necessity gate, acceptance co-design, semantic stall diagnosis | **prose** | design-time method and semantic judgment — inherently prose, stated as such |
