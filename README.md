@@ -45,9 +45,22 @@ The supervisor must outrank the executor. A loop that judges itself will eventua
 
 ## Quick Start
 
+Install as an agent skill (Claude Code, Codex, or any client that reads `SKILL.md`):
+
+```bash
+# Claude Code
+git clone https://github.com/bagbag16/loop-builder.git ~/.claude/skills/loop-builder
+# Codex
+git clone https://github.com/bagbag16/loop-builder.git ~/.codex/skills/loop-builder
+```
+
+Then ask:
+
 ```text
 Use loop-builder. Decide whether this task should become an autonomous loop. If yes, define the acceptance criteria, executor, supervisor, stop conditions, and ACH state boundary.
 ```
+
+A complete design session — necessity gate, the three roles instantiated, the acceptance table, ACH binding, thresholds, and a supervisor trip in action — is in the [worked example](./EXAMPLE.md) (Chinese, like [SKILL.md](./SKILL.md), which is the authoritative methodology).
 
 ## When Not To Use It
 

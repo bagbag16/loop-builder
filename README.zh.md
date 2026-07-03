@@ -45,9 +45,22 @@ flowchart TD
 
 ## 快速开始
 
+作为 Agent skill 安装（Claude Code、Codex，或任何读取 `SKILL.md` 的客户端）：
+
+```bash
+# Claude Code
+git clone https://github.com/bagbag16/loop-builder.git ~/.claude/skills/loop-builder
+# Codex
+git clone https://github.com/bagbag16/loop-builder.git ~/.codex/skills/loop-builder
+```
+
+然后这样要求：
+
 ```text
 Use loop-builder. Decide whether this task should become an autonomous loop. If yes, define the acceptance criteria, executor, supervisor, stop conditions, and ACH state boundary.
 ```
+
+一次完整的设计过程——必要性闸门、三角色实例化、验收标准表、ach 绑定、阈值，以及监管跳闸的实际一幕——见 [完整案例](./EXAMPLE.md)。权威方法论在 [SKILL.md](./SKILL.md)。
 
 ## 何时别用
 
